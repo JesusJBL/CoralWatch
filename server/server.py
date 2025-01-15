@@ -3,6 +3,7 @@ from model import Model
 import os
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
+import boto3
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 TEMP_FOLDER = './images'
@@ -12,16 +13,18 @@ CORS(app)
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 app.config['TEMP_FOLDER'] = TEMP_FOLDER
 
+
+
+def download_model():
+    s3 = boto3.client('s3')
+    s3.download_file('coralmodelbucket', 'model6.keras', 'model6.keras')
+
+download_model()
 model = Model()
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
-@app.route("/")
-def home():
-    return send_from_directory(app.static_folder, "index.html")
 
 # Model output route
 @app.route('/predict', methods=["POST"])
@@ -49,4 +52,4 @@ def predict():
     
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

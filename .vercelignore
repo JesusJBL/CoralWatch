@@ -1,6 +1,5 @@
 client/node_modules/
 server/venv/
-server/venv/lib/python3.11/site-packages/tensorflow/
 server/__pycache__/
 *.log
 *.env
