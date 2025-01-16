@@ -2,6 +2,7 @@
 CoralWatch is a full-stack web application showcasing a coral reef health-detecting CNN model. Details on specific model development and methods used can be found on [a separate repository](https://github.com/JesusJBL/ReefModel).
 
 Note: Due to monetary constraints the project is currently not being hosted.
+<img width="1254" alt="Screenshot 2025-01-16 at 1 00 50 PM" src="https://github.com/user-attachments/assets/c1a4e9d3-7ea3-4472-b5b6-60ef86b52bfb" />
 
 # Features #
 - Frontend: Seamless integration with a user-friendly ReactJS interface.
